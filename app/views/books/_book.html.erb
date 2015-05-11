@@ -1,0 +1,16 @@
+    <tr class='<%= "finished" if book.finished? %>'>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.description %></td>
+        <td><%= image_from_amazon(book.amazon_id) %></td>
+        <td> 
+          <% book.genres.each do |genre| %>
+          <span>
+              <%= link_to genre.name, '#' %>
+          </span> 
+            <% end %>
+        </td>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
