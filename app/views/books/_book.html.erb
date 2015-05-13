@@ -4,11 +4,19 @@
           <p class="pauthor"><%= book.author %><p>
           <p class="desc"><%= book.description %><p> 
           <% book.genres.each do |genre| %>
-            <span>
+            <span class="label label-primary">
                 <%= link_to genre.name, '#' %>
             </span> 
           <% end %>
-          <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action" %>
-          <%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action" %>
-          <%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action" %>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="abtn" aria-expanded="false">
+            Action buttons
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu abtn" role="menu">
+              <li><%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action" %></li>
+              <li><%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action" %></li>
+              <li><%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action" %></li>
+            </ul>
+          </div>
         </div>

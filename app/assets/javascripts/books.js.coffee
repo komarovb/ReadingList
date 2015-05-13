@@ -5,3 +5,5 @@
 $ ->
   $('#n-book-btn').on 'click', (e) ->
   	$('.n-form').toggle()
+  $('.dropdown-toggle').on 'click', (e) ->
+  	$('.abtn').toggle()
