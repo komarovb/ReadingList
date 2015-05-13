@@ -1,16 +1,14 @@
-    <tr class='<%= "finished" if book.finished? %>'>
-        <td><%= book.title %></td>
-        <td><%= book.author %></td>
-        <td><%= book.description %></td>
-        <td><%= image_from_amazon(book.amazon_id) %></td>
-        <td> 
+        <div class="sbook">
+          <h3><%= book.title %></h3>
+          <%= image_from_amazon(book.amazon_id) %>
+          <p class="pauthor"><%= book.author %><p>
+          <p class="desc"><%= book.description %><p> 
           <% book.genres.each do |genre| %>
-          <span>
-              <%= link_to genre.name, '#' %>
-          </span> 
-            <% end %>
-        </td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+            <span>
+                <%= link_to genre.name, '#' %>
+            </span> 
+          <% end %>
+          <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action" %>
+          <%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action" %>
+          <%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action" %>
+        </div>

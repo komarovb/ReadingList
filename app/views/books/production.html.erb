@@ -1,0 +1,61 @@
+<form>
+  <legend>Search</legend>
+  <input type="text" value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword'>
+</form>
+<div class="n-form">
+<%= form_for(Book.new, remote: true) do |f| %>
+  <legend>New Book</legend>
+  <div class="field">
+    <%= f.select :genre_ids, @genres.map{|g| [g.name, g.id]},{},{multiple: true} %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :amazon_id %><br>
+    <%= f.text_field :amazon_id %>
+  </div>
+  <div class="field">
+    <legend>Rating</legend>
+    <% (1..5).each do |r| %>
+      <%= r %><%= f.radio_button :rating, r %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Amazon</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @books %>
+  </tbody>
+</table>
+
+<br>
+
+<div id="n-book-btn"><%= link_to 'New Book', '#' %></div>
+<br>
+<% @genres.each do |genre| %>
+  <%= link_to genre.name,books_path(filter: genre.name) %>
+<% end %>
