@@ -1,10 +1,47 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$finishedColor: green;
-.finished{
-	color:$finishedColor;
+$bg-color: white;
+body{
+	background-color: $bg-color;
 }
-.n-form{
-	display:none;
+a{
+	text-decoration: none;
+}
+.r1{
+	.col-md-12{
+		h1{
+			font-size: 5em;
+			text-align: center;
+		}
+	}
+}
+.r2{
+	.col-md-6{
+
+	}
+	.col-md-4{
+		.form-group{
+			width: 80%;
+			legend{
+				font-size: 3em;
+			}
+		}
+		h3{
+				font-size: 2em;
+				text-align: left;
+			}
+		.genre-list{
+			font-size: 1.2em;
+			li{
+				margin-right: 10px;
+				display: inline-block;
+				a:hover{
+					background-color: $bg-color;
+					text-decoration: none;
+					color: black;
+				}
+			}
+		}
+	}
 }

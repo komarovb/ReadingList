@@ -1,9 +1,13 @@
-<div class="row">
+<div class="row r1">
   <div class="col-md-12">
     <h1>Your book list</h1>
   </div>
 </div>
-<div class="row">
+<div class="row r2">
+  <div class="col-md-6">
+    <%= render @books %>
+  </div>
+  <div class="col-md-2"></div>
   <div class="col-md-4">
     <form>
       <div class="form-group">
@@ -11,12 +15,11 @@
         <input class="form-control" type="text" value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword'>
       </div>
     </form>
-  </div>
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <%= render @books %>
+    <h3>Or choose your favourite genre</h3>
+    <ul class="genre-list">
+    <% @genres.each do |genre| %>
+      <li><%= link_to genre.name,books_path(filter: genre.name) %></li>
+    <% end %>
+    </ul>
   </div>
 </div>
