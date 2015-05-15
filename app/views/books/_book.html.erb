@@ -1,14 +1,18 @@
         <div class="sbook">
-          <h3><%= book.title %></h3>
-          <%= image_from_amazon(book.amazon_id) %>
-          <p class="pauthor"><%= book.author %><p>
-          <p class="desc"><%= book.description %><p> 
-          <% book.genres.each do |genre| %>
-            <span class="label label-primary sgenre">
-                <%= link_to genre.name, '#' %>
+          <div class="image-holder">
+            <%= image_from_amazon(book.amazon_id) %>
+          </div>
+          <div class="info">
+              <h3><%= book.title %></h3>
+              <p class="pauthor"><%= book.author %><p>
+              <p class="desc"><%= book.description %><p> 
+              <% book.genres.each do |genre| %>
+                <span class="label label-primary sgenre">
+                    <%= link_to genre.name, '#' %>
             </span> 
-          <% end %>
-              <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action" %>
-              <%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action" %>
-              <%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action" %>
+              <% end %>
+                  <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action" %>
+                  <%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action" %>
+                  <%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action" %>
+            </div>
         </div>

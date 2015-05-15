@@ -9,6 +9,7 @@ a{
 	text-decoration: none;
 }
 .r1{
+	margin-bottom: 20px;
 	.col-md-12{
 		h1{
 			font-size: 5em;
@@ -18,7 +19,46 @@ a{
 }
 .r2{
 	.col-md-6{
+		.sbook{
+			width: 80%;
+			float: right;
+			margin-bottom: 40px;
+			.image-holder{
+				vertical-align: text-bottom;
+				display: inline-block;
+				width: 30%;
+				img{
+					height: auto;
+					width: 120px;
+					border: 2px solid black;
+				}
+			}
+			.info{
+				vertical-align: text-bottom;
+				width: 65%;
+				display: inline-block;
+				margin-bottom: 15px;
+				h3{
+					font-size: 2em;
+					text-align: left;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					text-align: left;
+				}
+				.pauthor{
+					font-style: italic;
+					font-size: 0.9em;
+				}
+				.desc{
+					font-size: 1.2em;
+				}
 
+
+				form{
+					display: inline-block;
+				}
+			}
+		}
 	}
 	.col-md-4{
 		.form-group{
