@@ -60,6 +60,6 @@
     <% end %>
     </ul>
     <h3>Or add a new book to the list</h3>
-    <div id="n-book-btn"><%= link_to 'New Book', '#' %></div>
+    <div id="n-book-btn"><%= link_to 'New Book', new_book_path, remote: true %></div>
   </div>
 </div>
