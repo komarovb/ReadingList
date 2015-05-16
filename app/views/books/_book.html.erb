@@ -7,7 +7,7 @@
               <p class="pauthor"><%= book.author %><p>
               <p class="desc"><%= book.description %><p> 
               <% book.genres.each do |genre| %>
-                <span class="label label-primary sgenre">
+                <span class="label sgenre">
                     <%= link_to genre.name, '#' %>
             </span> 
               <% end %>

@@ -11,6 +11,8 @@ Genre.destroy_all
 fiction=Genre.create!(name:'Fiction')
 non_fiction=Genre.create!(name:'Non-Fiction')
 apple=Genre.create!(name:'Apple')
+horror=Genre.create!(name:'Horror')
+comedy=Genre.create!(name:'Comedy')
 
 Book.create! ([{
 	title: "Hyperion",
@@ -20,6 +22,33 @@ Book.create! ([{
 	rating: 5,
 	finished_on: 10.days.ago,
 	genres:[fiction]
+},
+{
+	title: "One Hundred Years of Solitude",
+	author: "Gabriel Garcia Marquez",
+	description: "One Hundred Years of Solitude tells the story of the rise and fall, birth and death of the mythical town of Macondo through the history of the Buend&#237;a family. Inventive, amusing, magnetic, sad, and alive with unforgettable men and women -- brimming with truth, compassion, and a lyrical magic that strikes the soul -- this novel is a masterpiece in the art of fiction.",
+	amazon_id: "0060883286",
+	rating: 5,
+	finished_on: 30.days.ago,
+	genres:[fiction,apple]
+},
+{
+	title: "The Road",
+	author: "Jack London",
+	description: "This anthology is a thorough introduction to classic literature for those who have not yet experienced these literary masterworks. For those who have known and loved these works in the past, this is an invitation to reunite with old friends in a fresh new format. From Shakespeare’s finesse to Oscar Wilde’s wit, this unique collection brings together works as diverse and influential as The Pilgrim’s Progress and Othello. As an anthology that invites readers to immerse themselves in the masterpieces of the literary giants, it is must-have addition to any library.",
+	amazon_id: "1466203277",
+	rating: 3,
+	finished_on: nil,
+	genres: [non_fiction]
+},
+{
+	title: "The Call of the Wild",
+	author: "Jack London",
+	description: "This anthology is a thorough introduction to classic literature for those who have not yet experienced these literary masterworks. For those who have known and loved these works in the past, this is an invitation to reunite with old friends in a fresh new format. From Shakespeare’s finesse to Oscar Wilde’s wit, this unique collection brings together works as diverse and influential as The Pilgrim’s Progress and Othello. As an anthology that invites readers to immerse themselves in the masterpieces of the literary giants, it is must-have addition to any library.",
+	amazon_id: "1503302946",
+	rating: 4,
+	finished_on: nil,
+	genres: [non_fiction]
 },
 {
 	title: "Mindstorms",

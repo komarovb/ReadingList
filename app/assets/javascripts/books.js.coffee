@@ -4,4 +4,4 @@
 
 $ ->
   $('#n-book-btn').on 'click', (e) ->
-  	$('.n-form').toggle()
+  	$('.n-modal').modal('show')

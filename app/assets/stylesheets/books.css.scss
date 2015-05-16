@@ -18,7 +18,7 @@ a{
 	}
 }
 .r2{
-	.col-md-6{
+	.col-md-7{
 		.sbook{
 			width: 80%;
 			float: right;
@@ -27,6 +27,7 @@ a{
 				vertical-align: text-bottom;
 				display: inline-block;
 				width: 30%;
+				text-align: center;
 				img{
 					height: auto;
 					width: 120px;
@@ -34,7 +35,7 @@ a{
 				}
 			}
 			.info{
-				vertical-align: text-bottom;
+				vertical-align: top;
 				width: 65%;
 				display: inline-block;
 				margin-bottom: 15px;
@@ -50,10 +51,21 @@ a{
 					font-size: 0.9em;
 				}
 				.desc{
-					font-size: 1.2em;
+					font-size: 1em;
 				}
-
-
+				.sgenre{
+					margin-right: 5px;
+					background-color: $bg-color;
+					a{
+						color: black;
+						font-size: 1.2em;
+						&:hover{
+							background-color: $bg-color;
+							text-decoration: none;
+							cursor: default;
+						}
+					}
+				}
 				form{
 					display: inline-block;
 				}
@@ -80,8 +92,46 @@ a{
 					background-color: $bg-color;
 					text-decoration: none;
 					color: black;
+					font-size: 1.8em;
 				}
 			}
+		}
+		#n-book-btn{
+			width: 110px;
+			text-align: center;
+			background-color:#337ab7;
+			border-radius: 4px;
+			a{
+				color: black;
+				text-decoration: none;
+				&:hover{
+					text-decoration: none;
+					background-color: #9A50BC;
+				}
+			}
+			&:hover{
+				background-color: #9A50BC;
+				font-size: 1.4em;
+			}
+		}
+	}
+}
+.n-form{
+	legend{
+		font-size: 3em;
+	}
+	.form-group{
+		label{
+			font-size: 1.4em;
+		}
+		input{
+			width: 80%;
+			height: 30px;
+		}
+		textarea{
+			width: 80%;
+			resize: none;
+			height: 180px;
 		}
 	}
 }

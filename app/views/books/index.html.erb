@@ -1,13 +1,51 @@
+<div class="modal fade n-modal" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="n-form">
+            <%= form_for(Book.new, remote: true) do |f| %>
+            <legend>New Book</legend>
+            <div class="form-group">
+              <%= f.label :title %><br>
+              <%= f.text_field :title %>
+            </div>
+            <div class="form-group">
+              <%= f.label :author %><br>
+              <%= f.text_field :author %>
+            </div>
+            <div class="form-group">
+              <%= f.label :description %><br>
+              <%= f.text_area :description %>
+          </div>
+            <div class="form-group">
+              <%= f.label :amazon_id %><br>
+              <%= f.text_field :amazon_id %>
+            </div>
+            <div class="form-group">
+              <%= f.select :genre_ids, @genres.map{|g| [g.name, g.id]},{},{multiple: true} %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Create new book", :class => 'btn btn-primary' %>
+    <% end %>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
 <div class="row r1">
   <div class="col-md-12">
     <h1>Your personal book list</h1>
   </div>
 </div>
 <div class="row r2">
-  <div class="col-md-6">
+  <div class="col-md-7">
     <%= render @books %>
   </div>
-  <div class="col-md-2"></div>
+  <div class="col-md-1"></div>
   <div class="col-md-4">
     <form>
       <div class="form-group">
@@ -21,5 +59,7 @@
       <li><%= link_to genre.name,books_path(filter: genre.name) %></li>
     <% end %>
     </ul>
+    <h3>Or add a new book to the list</h3>
+    <div id="n-book-btn"><%= link_to 'New Book', '#' %></div>
   </div>
 </div>
