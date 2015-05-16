@@ -3,7 +3,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="n-form">
-            <%= form_for(Book.new, remote: true) do |f| %>
+            <%= form_for(Book.new || @book, remote: true) do |f| %>
             <legend>New Book</legend>
             <div class="form-group">
               <%= f.label :title %><br>

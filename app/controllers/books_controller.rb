@@ -21,6 +21,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    format.js
   end
 
   # POST /books
@@ -61,6 +62,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
