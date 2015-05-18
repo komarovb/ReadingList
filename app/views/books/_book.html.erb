@@ -11,7 +11,7 @@
                     <%= link_to genre.name, '#' %>
             </span> 
               <% end %>
-                  <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action" %>
+                  <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action", remote: true %>
                   <%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action", remote: true%>
                   <%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action"%>
             </div>
