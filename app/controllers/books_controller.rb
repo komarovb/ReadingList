@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, only: [:index, :show]
   # GET /books
   # GET /books.json
   def index
@@ -8,7 +8,7 @@ class BooksController < ApplicationController
       search(params[:keyword]).filter(params[:filter])
     @genres=Genre.all
   end
-
+  
   # GET /books/1
   # GET /books/1.json
   def show
