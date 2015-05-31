@@ -1,24 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @book.author %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Amazon:</strong>
-  <%= @book.amazon_id %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<div class="modal-body">
+	<div class="cont">
+		<h1><%= @book.title %></h1>
+		<p><%= image_from_amazon(@book.amazon_id) %></p>
+  		<p class="aut"><%= @book.author %></p>
+  		<p class="des"><%= @book.description %></p>
+	</div>
+	<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>

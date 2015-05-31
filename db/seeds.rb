@@ -10,7 +10,6 @@ Genre.destroy_all
 
 fiction=Genre.create!(name:'Fiction')
 non_fiction=Genre.create!(name:'Non-Fiction')
-apple=Genre.create!(name:'Apple')
 horror=Genre.create!(name:'Horror')
 comedy=Genre.create!(name:'Comedy')
 
@@ -30,7 +29,7 @@ Book.create! ([{
 	amazon_id: "0060883286",
 	rating: 5,
 	finished_on: 30.days.ago,
-	genres:[fiction,apple]
+	genres:[fiction]
 },
 {
 	title: "The Road",
@@ -57,6 +56,6 @@ Book.create! ([{
 	amazon_id: "0465046746",
 	rating: 3,
 	finished_on: nil,
-	genres: [non_fiction, apple]
+	genres: [non_fiction]
 }
 	])

@@ -138,3 +138,21 @@ a{
 		}
 }
 }
+.modal-body{
+	.cont{
+		text-align: center;
+		h1{
+			margin-bottom: 20px;
+		}
+		img{
+			width: 120px;
+		}
+		.aut{
+			font-size: 0.8em;
+			font-style: italic;
+		}
+		.des{
+			font-size: 1.2em;
+		}
+	}
+}
