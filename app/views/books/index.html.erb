@@ -4,11 +4,9 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
-
 <div class="row r1">
   <div class="col-md-12">
-    <h1>Your personal book list</h1>
+    <h1>Welcome <%= session[:user_name] %> this is your personal book list</h1>
   </div>
 </div>
 <div class="row r2">
@@ -29,7 +27,11 @@
       <li><%= link_to genre.name,books_path(filter: genre.name) %></li>
     <% end %>
     </ul>
-    <h3>Or add a new book to the list</h3>
+    <h3>Or make some other action</h3>
     <div id="n-book-btn"><%= link_to 'New Book', new_book_path, remote: true %></div>
+    <% if current_user %> 
+    <div id="n-book-btn"><%= link_to "Log out", logout_path, method: "delete" %></div>
+    <% end %>
+
   </div>
 </div>

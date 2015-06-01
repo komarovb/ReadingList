@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Book.destroy_all
 Genre.destroy_all
+User.destroy_all
 
 fiction=Genre.create!(name:'Fiction')
 non_fiction=Genre.create!(name:'Non-Fiction')
@@ -59,3 +60,28 @@ Book.create! ([{
 	genres: [non_fiction]
 }
 	])
+book1=Book.create({
+	title: "Mindstorms",
+	author: "Seymour A. Papert",
+	description: "Description 2",
+	amazon_id: "0465046746",
+	rating: 3,
+	finished_on: nil,
+	genres: [non_fiction]
+})
+book2=Book.create({
+	title: "The Road",
+	author: "Jack London",
+	description: "This anthology is a thorough introduction to classic literature for those who have not yet experienced these literary masterworks. For those who have known and loved these works in the past, this is an invitation to reunite with old friends in a fresh new format. From Shakespeare’s finesse to Oscar Wilde’s wit, this unique collection brings together works as diverse and influential as The Pilgrim’s Progress and Othello. As an anthology that invites readers to immerse themselves in the masterpieces of the literary giants, it is must-have addition to any library.",
+	amazon_id: "1466203277",
+	rating: 3,
+	finished_on: nil,
+	genres: [non_fiction]
+})
+User.create!({
+	first_name: "Borys",
+	last_name: "Komarov",
+	email: "fisika80@gmail.com",
+	password: "1q2w3e4r5t",
+	books: [book1, book2]
+	})

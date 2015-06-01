@@ -15,7 +15,7 @@ a{
 	margin-bottom: 20px;
 	.col-md-12{
 		h1{
-			font-size: 5em;
+			font-size: 3em;
 			text-align: center;
 		}
 	}
@@ -104,6 +104,8 @@ a{
 			text-align: center;
 			background-color:#337ab7;
 			border-radius: 4px;
+			display: inline-block;
+			margin-bottom: 10px;
 			a{
 				color: black;
 				text-decoration: none;

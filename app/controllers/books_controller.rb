@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.includes(:genres).
+    @books = Book.includes(:genres, :users).joins(:users).where('users.id = ?', session[:user_id]).
       search(params[:keyword]).filter(params[:filter])
     @genres=Genre.all
   end
