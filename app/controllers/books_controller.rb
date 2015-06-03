@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
+    
     @books = Book.includes(:genres, :users).joins(:users).where('users.id = ?', session[:user_id]).
       search(params[:keyword]).filter(params[:filter])
     @genres=Genre.all
@@ -28,9 +29,13 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-
+    @user = User.find_by(id: session[:user_id])
+    @book_list = @user.books
     respond_to do |format|
       if @book.save
+        @book_list << @book
+        @user.update(books: @book_list)
+        @user.save        
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
         format.js
@@ -59,7 +64,9 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
-    @book.destroy
+    #@book.destroy
+    @user = User.find_by(id: session[:user_id])
+    @user.books.delete(@book)
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }

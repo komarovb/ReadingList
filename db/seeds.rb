@@ -9,6 +9,7 @@ Book.destroy_all
 Genre.destroy_all
 User.destroy_all
 
+
 fiction=Genre.create!(name:'Fiction')
 non_fiction=Genre.create!(name:'Non-Fiction')
 horror=Genre.create!(name:'Horror')
