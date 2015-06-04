@@ -28,7 +28,7 @@
     <% end %>
     </ul>
     <h3>Or make some other action</h3>
-    <div id="n-book-btn"><%= link_to 'New Book', new_book_path, remote: true %></div>
+    <div id="n-book-btn"><%= link_to 'Add a book', add_path, remote: true %></div>
     <% if current_user %> 
     <div id="n-book-btn"><%= link_to "Log out", logout_path, method: "delete" %></div>
     <% end %>

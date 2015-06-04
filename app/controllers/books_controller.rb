@@ -19,10 +19,13 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
   end
-
   # GET /books/new
   def new
     @book = Book.new
+  end
+  def addNew
+    @books = Book.includes(:genres, :users).
+      search(params[:keyword]).filter(params[:filter])
   end
   # GET /books/1/edit
   def edit

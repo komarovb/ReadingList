@@ -14,5 +14,6 @@ app =
 	setUpListeners: () ->
 		$('#n-book-btn').on 'click', (e) ->
   			$('.n-modal').modal('show')
-
+  		$('#add-new').on 'click', showNewForm
+  		$('#add-coll').on 'click', showAllColl
 app.Initialize
