@@ -2,6 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+###
 $ ->
   $('#n-book-btn').on 'click', (e) ->
   	$('.n-modal').modal('show')
+###
+
+app =
+	Initialize: () ->
+		app.setUpListeners
+	setUpListeners: () ->
+		$('#n-book-btn').on 'click', (e) ->
+  			$('.n-modal').modal('show')
+
+app.Initialize

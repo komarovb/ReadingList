@@ -4,9 +4,14 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    
-    @books = Book.includes(:genres, :users).joins(:users).where('users.id = ?', session[:user_id]).
+    @user = User.find_by(id: session[:user_id])
+    if @user.role=="au"
+      @books = Book.includes(:genres, :users).
       search(params[:keyword]).filter(params[:filter])
+    else
+      @books = Book.includes(:genres, :users).joins(:users).where('users.id = ?', session[:user_id]).
+      search(params[:keyword]).filter(params[:filter])
+    end
     @genres=Genre.all
   end
   
@@ -19,7 +24,6 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
   end
-
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
@@ -33,7 +37,7 @@ class BooksController < ApplicationController
     @book_list = @user.books
     respond_to do |format|
       if @book.save
-        @book_list << @book
+        @book_list << @book if @user.role!="au"
         @user.update(books: @book_list)
         @user.save        
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -66,7 +70,11 @@ class BooksController < ApplicationController
   def destroy
     #@book.destroy
     @user = User.find_by(id: session[:user_id])
-    @user.books.delete(@book)
+    if @user.role=="au"
+      @book.destroy
+    else
+      @user.books.delete(@book)
+    end
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }

@@ -84,5 +84,13 @@ User.create!({
 	last_name: "Komarov",
 	email: "fisika80@gmail.com",
 	password: "1q2w3e4r5t",
+	role: "nu",
 	books: [book1, book2]
+	})
+User.create!({
+	first_name: "Admin",
+	last_name: "Adminovich",
+	email: "admin@e.com",
+	password: "12345",
+	role: "au"
 	})
