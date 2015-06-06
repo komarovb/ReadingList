@@ -8,11 +8,14 @@ class BooksController < ApplicationController
     if @user.role=="au"
       @books = Book.includes(:genres, :users).
       search(params[:keyword]).filter(params[:filter])
+      @action_buttons=true
     else
       @books = Book.includes(:genres, :users).joins(:users).where('users.id = ?', session[:user_id]).
       search(params[:keyword]).filter(params[:filter])
+      @action_buttons=false
     end
     @genres=Genre.all
+    @add_panel=false
   end
   
   # GET /books/1
@@ -26,12 +29,25 @@ class BooksController < ApplicationController
   def addNew
     @books = Book.includes(:genres, :users).
       search(params[:keyword]).filter(params[:filter])
+    @action_buttons=false
+    @add_panel=true
   end
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
   end
-
+  def addBook
+    @user = User.find_by(id: session[:user_id])
+    @book_list = @user.books
+    @msg=params[:msg]
+    @msg.each do |b|
+      @book_list << Book.find_by(id: b)
+    end
+    @user.update(books: @book_list)
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Book was successfully added.' }
+    end
+  end
   # POST /books
   # POST /books.json
   def create

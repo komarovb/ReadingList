@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  post 'addBook' => 'books#addBook'
+
   get 'addNew' => 'books#addNew', as: 'add'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,2 +1,63 @@
+var i=0;
+var selBooks=[];
 $(".modal-content").html("<%= escape_javascript(render 'allBooks') %>");
 $(".n-modal").modal("show");
+$(".addbook").each(function(index,value){
+	$(this).on('click',selectBook);
+});
+$(".btn-add").on('click', AddBooks);
+
+function AddBooks()
+{
+	if(i==0)
+	{
+		alert("You have added 0 books!");
+		return;
+	}
+	var msg = selBooks;
+	console.log(msg);
+	$.ajax({
+		url: '/addBook',
+		data: {msg},
+		type: 'POST',
+		success: function(data){
+		console.log(data);
+		location.reload();
+		},
+		error: function(data){
+		console.log("ERROR!");
+		}
+	});
+	
+}
+function selectBook(){
+	var id=parseInt($(this).attr("id"));
+	if($( this ).css( "background-color" )=="rgb(100, 149, 237)")
+	{
+		var f=-10;
+		$(this).css( "background-color", "white" );
+		f=findInArr(id)
+		console.log(f);
+		if(f>-1)
+		{
+			selBooks[f]=-100;
+			i--;
+		}
+	}
+	else
+	{
+		$(this).css( "background-color", "#6495ED" );
+		selBooks[i]=id;
+		i++;
+	}
+}
+function findInArr(id)
+{
+	var j=0;
+	for(;j<selBooks.length+1;j++)
+	{
+		if(selBooks[j]==id)
+			return i;
+	}
+	return -1;
+}
