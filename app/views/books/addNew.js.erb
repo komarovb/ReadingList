@@ -40,7 +40,7 @@ function selectBook(){
 		console.log(f);
 		if(f>-1)
 		{
-			selBooks[f]=-100;
+			selBooks.splice(f,f+1)
 			i--;
 		}
 	}
@@ -57,7 +57,7 @@ function findInArr(id)
 	for(;j<selBooks.length+1;j++)
 	{
 		if(selBooks[j]==id)
-			return i;
+			return j;
 	}
 	return -1;
 }
