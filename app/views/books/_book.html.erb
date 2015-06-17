@@ -11,9 +11,11 @@
                     <%= link_to genre.name, '#' %>
             </span> 
               <% end %>
-                <% if @action_buttons==true %>
-                  <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action", remote: true %>
+                <% if @action_buttons==1 %>
                   <%= button_to "Edit", edit_book_path(book), :method => "get", class: "btn btn-primary btn-action", remote: true%>
+                <% end %>
+                <% if @action_buttons==1||@action_buttons==3 %>
+                  <%= button_to "Show", book, :method => "get", class: "btn btn-primary btn-action", remote: true %>
                   <%= button_to "Destroy", book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-action"%>
                   <% end %>
             </div>

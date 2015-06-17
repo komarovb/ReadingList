@@ -8,11 +8,11 @@ class BooksController < ApplicationController
     if @user.role=="au"
       @books = Book.includes(:genres, :users).
       search(params[:keyword]).filter(params[:filter])
-      @action_buttons=true
+      @action_buttons=1
     else
       @books = Book.includes(:genres, :users).joins(:users).where('users.id = ?', session[:user_id]).
       search(params[:keyword]).filter(params[:filter])
-      @action_buttons=false
+      @action_buttons=3
     end
     @genres=Genre.all
     @add_panel=false
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   def addNew
     @books = Book.includes(:genres, :users).
       search(params[:keyword]).filter(params[:filter])
-    @action_buttons=false
+    @action_buttons=2
     @add_panel=true
   end
   # GET /books/1/edit
