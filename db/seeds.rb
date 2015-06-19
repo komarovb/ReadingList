@@ -34,29 +34,11 @@ Book.create! ([{
 	genres:[fiction]
 },
 {
-	title: "The Road",
-	author: "Jack London",
-	description: "This anthology is a thorough introduction to classic literature for those who have not yet experienced these literary masterworks. For those who have known and loved these works in the past, this is an invitation to reunite with old friends in a fresh new format. From Shakespeare’s finesse to Oscar Wilde’s wit, this unique collection brings together works as diverse and influential as The Pilgrim’s Progress and Othello. As an anthology that invites readers to immerse themselves in the masterpieces of the literary giants, it is must-have addition to any library.",
-	amazon_id: "1466203277",
-	rating: 3,
-	finished_on: nil,
-	genres: [non_fiction]
-},
-{
 	title: "The Call of the Wild",
 	author: "Jack London",
 	description: "This anthology is a thorough introduction to classic literature for those who have not yet experienced these literary masterworks. For those who have known and loved these works in the past, this is an invitation to reunite with old friends in a fresh new format. From Shakespeare’s finesse to Oscar Wilde’s wit, this unique collection brings together works as diverse and influential as The Pilgrim’s Progress and Othello. As an anthology that invites readers to immerse themselves in the masterpieces of the literary giants, it is must-have addition to any library.",
 	amazon_id: "1503302946",
 	rating: 4,
-	finished_on: nil,
-	genres: [non_fiction]
-},
-{
-	title: "Mindstorms",
-	author: "Seymour A. Papert",
-	description: "Description 2",
-	amazon_id: "0465046746",
-	rating: 3,
 	finished_on: nil,
 	genres: [non_fiction]
 }
@@ -91,6 +73,6 @@ User.create!({
 	first_name: "Admin",
 	last_name: "Adminovich",
 	email: "admin@e.com",
-	password: "12345",
+	password: "123456",
 	role: "au"
 	})
