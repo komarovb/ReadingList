@@ -140,6 +140,20 @@ a{
 		}
 }
 }
+.modal-content{
+	h1{
+		text-align: center;
+	}
+	.cust-link{
+		font-size: 15px;
+		margin-left: 5px;
+		a{
+			color: black;
+			&:hover{
+				background-color: $bg-color;
+			}
+		}
+	}
 .modal-body{
 	.cont{
 		text-align: center;
@@ -156,5 +170,73 @@ a{
 		.des{
 			font-size: 1.2em;
 		}
+	}
+}
+}
+.allB{
+	padding: 10px;
+	h1{
+		text-align: center;
+	}
+	.cust-link{
+		font-size: 15px;
+		a{
+			color: black;
+			&:hover{
+				background-color: $bg-color;
+			}
+		}
+	}
+	.all-btns{
+		margin-bottom: 10px;
+	}
+	.addbook{
+		margin-bottom: 10px;
+		cursor: pointer;
+		.image-holder{
+				vertical-align: text-bottom;
+				display: inline-block;
+				width: 30%;
+				text-align: center;
+				padding-top: 5px;
+				img{
+					height: auto;
+					width: 120px;
+					border: 2px solid black;
+				}
+			}
+			.info{
+				vertical-align: top;
+				width: 65%;
+				display: inline-block;
+				margin-bottom: 15px;
+				h3{
+					font-size: 2em;
+					text-align: left;
+					margin-top: 0px;
+					margin-bottom: 0px;
+					text-align: left;
+				}
+				.pauthor{
+					font-style: italic;
+					font-size: 0.9em;
+				}
+				.desc{
+					font-size: 1em;
+				}
+				.sgenre{
+					margin-right: 5px;
+					background-color: $bg-color;
+					a{
+						color: black;
+						font-size: 1.2em;
+						&:hover{
+							background-color: $bg-color;
+							text-decoration: none;
+							cursor: default;
+						}
+					}
+				}
+			}
 	}
 }
