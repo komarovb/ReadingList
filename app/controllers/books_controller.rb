@@ -25,6 +25,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @genres=Genre.all
   end
   def addNew
     @books = Book.includes(:genres, :users).
@@ -35,6 +36,8 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
+    @current_Genre=@book.genres
+    @genres=Genre.all
   end
   def addBook
     @user = User.find_by(id: session[:user_id])
