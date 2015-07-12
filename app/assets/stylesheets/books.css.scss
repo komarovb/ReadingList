@@ -4,6 +4,7 @@
 $bg-color: white;
 body{
 	background-color: $bg-color;
+	width:100%;
 }
 a{
 	text-decoration: none;
@@ -189,6 +190,9 @@ a{
 	}
 	.all-btns{
 		margin-bottom: 10px;
+		input{
+			margin-bottom:5px;
+		}
 	}
 	.addbook{
 		margin-bottom: 10px;

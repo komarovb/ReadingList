@@ -30,6 +30,7 @@
     <%= f.text_field :amazon_id %>
   </div>
   <div class="form-group">
+    <%= f.label :genres %><br>
     <%= f.select :genre_ids,@genres.map{|g| [g.name,g.id] },{},{multiple: true} %>
   </div>
   <div class="modal-footer">
